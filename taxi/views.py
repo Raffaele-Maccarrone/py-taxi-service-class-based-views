@@ -50,7 +50,6 @@ class DriverDetailView(DetailView):
     """View function for the home page of the site."""
 
     model = Driver
-    paginate_by = 5
     queryset = Driver.objects.prefetch_related(
         Prefetch("cars", queryset=Car.objects.select_related("manufacturer"))
     )
